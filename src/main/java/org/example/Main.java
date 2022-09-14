@@ -35,8 +35,11 @@ public class Main {
            studentGrades[i] = scanner.nextInt();
         }
 
+        // Get the average grade of all grades
+        double averageGrade = calculateAverageGrade(studentGrades);
+
         // Calculate the average of all student grades
-        System.out.println("Average grade: " + String.format("%.1f", calculateAverageGrade(studentGrades)));
+        System.out.println("Average grade: " + String.format("%.1f", averageGrade));
 
         // Get student number with the highest grade and display result
         int maxGradeStudentId = findStudentWithMaxGrade(studentGrades);
