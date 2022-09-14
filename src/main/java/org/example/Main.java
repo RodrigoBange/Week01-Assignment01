@@ -18,6 +18,9 @@ public class Main {
         // Save the user input to age
         int age = scanner.nextInt();
 
+        // Close scanner
+        scanner.close();
+
         // Display final result
         System.out.println("Your name is: " + name + ". " + "Your age is: " + age + ".");
     }
