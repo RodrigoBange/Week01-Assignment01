@@ -1,5 +1,5 @@
 package org.example;
-import java.util.Scanner; // Import Scanner class
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
