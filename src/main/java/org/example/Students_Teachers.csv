@@ -1,0 +1,16 @@
+Id,UserName,Password,Role,FirstName,LastName,BirthDate,Age,Group
+1,emma,emma12,Student,Emma,Smith,12/04/1997,23,IT-02-A
+2,jack,jack12,Student,Jack,Brown,08/07/1993,27,IT-02-A
+3,michael,michael12,Student,Michael,Garcia,11/01/1999,21,IT-02-A
+4,lisa,lisa12,Student,Lisa,Jones,04/29/2000,20,IT-02-A
+5,john,john12,Student,John,Miller,10/27/2001,19,IT-02-A
+6,linda,linda12,Student,Linda,Martinez,01/17/2002,18,IT-02-A
+7,richard,richard12,Student,Richard,Davis,09/22/1997,23,IT-02-A
+8,mark,mark12,Student,Mark,Lopez,12/09/1996,24,IT-02-A
+9,debora,debora12,Student,Debora,Hernandez,02/25/1995,25,IT-02-A
+10,rick,rick12,Student,Rick,Moore,03/16/2000,20,IT-02-A
+11,david,david12,Teacher,David,Taylor,06/15/1965,55,
+12,sophy,sophy12,Teacher,Sophy,Anderson,01/06/1987,33,
+13,james,james12,Teacher,James,Jordon,03/19/1956,64,
+14,susan,susan12,Teacher,Susan,Jackson,12/25/1978,42,
+15,mary,mary12,Teacher,Mary,Lee,09/04/1971,49,
