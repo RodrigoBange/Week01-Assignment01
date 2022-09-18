@@ -88,14 +88,13 @@ public class Main {
                 String group = entriesStrings[8];
 
                 // Create new Student
-                Person person = new Student(id, userName, password, role, firstName, lastName, birthDate, age, group);
-                people[i - 1] = person;
-                System.out.println(person.group);
+                Person student = new Student(id, userName, password, role, firstName, lastName, birthDate, age, group);
+                people[i - 1] = student;
             }
             else if (role.equals(TEACHER_ROLE)){
                 // Create new Teacher
-                Person person = new Teacher(id, userName, password, role, firstName, lastName, birthDate, age);
-                people[i - 1] = person;
+                Person teacher = new Teacher(id, userName, password, role, firstName, lastName, birthDate, age);
+                people[i - 1] = teacher;
             }
         }
 
@@ -106,7 +105,7 @@ public class Main {
     private static String getUserInfo(Person[] users, String enteredUsername, String enteredPassword){
         // If array contains username and password combination...
         for (Person user : users) {
-            if (user.userName.equals(enteredUsername) && user.password.equals(enteredPassword)) {
+            if (user.userName.equalsIgnoreCase(enteredUsername) && user.password.equals(enteredPassword)) {
                 // Display success and return true
                 System.out.println("Login successful!");
                 return user.role;
@@ -136,13 +135,34 @@ public class Main {
                 if (userCommand.equalsIgnoreCase("S")){
                     displayStudents(people);
                 }
-
+                else if (userCommand.equalsIgnoreCase("T")){
+                    displayTeachers(people);
+                }
+                else if (!userCommand.equalsIgnoreCase("X")){
+                    System.out.println("Command does not exist.");
+                }
             }
             while(!userCommand.equalsIgnoreCase("X"));
-
         }
         else if (userRole.equals(TEACHER_ROLE)){
-            System.out.println("S. Display Students | T. Display Teachers | A. Add Students | R. Display Reports | X. exit |");
+            // Ask for user commands till exiting
+            do {
+                System.out.println("S. Display Students | T. Display Teachers | A. Add Students | R. Display Reports | X. exit |");
+                System.out.println("Please enter a choice: ");
+                userCommand = scanner.next();
+
+                // Command options
+                if (userCommand.equalsIgnoreCase("S")){
+                    displayStudents(people);
+                }
+                else if (userCommand.equalsIgnoreCase("T")){
+                    displayTeachers(people);
+                }
+                else if (!userCommand.equalsIgnoreCase("X")){
+                    System.out.println("Command does not exist.");
+                }
+            }
+            while(!userCommand.equalsIgnoreCase("X"));
         }
     }
 
@@ -150,9 +170,9 @@ public class Main {
         List<Person> students = new ArrayList<>();
 
         // Get all students from people array
-        for (Person person : people) {
-            if (person.role.equals(STUDENT_ROLE)) {
-                students.add(person);
+        for (Person student : people) {
+            if (student.role.equals(STUDENT_ROLE)) {
+                students.add(student);
             }
         }
 
@@ -169,14 +189,47 @@ public class Main {
         String divider = "-----------------------------------------------------------------------------------";
 
         // Display header
-        System.out.printf("%-5s %15s %15s %15s %10s %10s %n", headerId, headerFirstName, headerLastName, headerBirthDate, headerAge, headerGroup);
+        System.out.printf("%-5s %15s %15s %15s %10s %13s %n", headerId, headerFirstName, headerLastName, headerBirthDate, headerAge, headerGroup);
         System.out.println(divider);
 
         for (Person student : students) {
             // Convert Date to only display the date
             DateFormat outputFormatter = new SimpleDateFormat("MM/dd/yyyy", Locale.UK);
             String birthDate = outputFormatter.format(student.birthDate);
-            System.out.printf("%-5s %15s %15s %15s %10s %10s %n", student.id, student.firstName, student.lastName, birthDate, student.age, student.age);
+            System.out.printf("%-5s %15s %15s %15s %10s %15s %n", student.id, student.firstName, student.lastName, birthDate, student.age, ((Student)student).group);
+        }
+    }
+
+    private static void displayTeachers(Person[] people) {
+        List<Person> teachers = new ArrayList<>();
+
+        // Get all teachers from people array
+        for (Person teacher : people) {
+            if (teacher.role.equals(TEACHER_ROLE)) {
+                teachers.add(teacher);
+            }
+        }
+
+        // Display title
+        System.out.println("LIST OF TEACHERS");
+
+        // Display header tags
+        String headerId = "Id";
+        String headerFirstName = "FirstName";
+        String headerLastName = "LastName";
+        String headerBirthDate = "BirthDate";
+        String headerAge = "Age";
+        String divider = "-----------------------------------------------------------------------------------";
+
+        // Display header
+        System.out.printf("%-5s %15s %15s %15s %10s %n", headerId, headerFirstName, headerLastName, headerBirthDate, headerAge);
+        System.out.println(divider);
+
+        for (Person teacher : teachers) {
+            // Convert Date to only display the date
+            DateFormat outputFormatter = new SimpleDateFormat("MM/dd/yyyy", Locale.UK);
+            String birthDate = outputFormatter.format(teacher.birthDate);
+            System.out.printf("%-5s %15s %15s %15s %10s %n", teacher.id, teacher.firstName, teacher.lastName, birthDate, teacher.age);
         }
     }
 }
