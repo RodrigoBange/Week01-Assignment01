@@ -6,7 +6,7 @@ public class Main {
         Person person = new Person("Person", "person@gmail.com");
         Person student = new Student("Student", "student@gmail.com", "Group01");
         Person teacher = new Teacher("Teacher","teacher@gmail.com",1250.99);
-
+        
         // Display all information
         System.out.println(person.DisplayInformation());
         System.out.println(student.DisplayInformation());
