@@ -90,7 +90,7 @@ public class Main {
                 // Create new Student
                 Person person = new Student(id, userName, password, role, firstName, lastName, birthDate, age, group);
                 people[i - 1] = person;
-                System.out.println(person.g);
+                System.out.println(person.group);
             }
             else if (role.equals(TEACHER_ROLE)){
                 // Create new Teacher
