@@ -1,7 +1,5 @@
 package org.example;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
+import java.time.LocalDate;
 
 public class Person {
     protected int id;
@@ -10,11 +8,11 @@ public class Person {
     protected String role;
     protected String firstName;
     protected String lastName;
-    protected Date birthDate;
+    protected LocalDate birthDate;
     protected int age;
 
     // Constructor
-    public Person(int id, String userName, String password, String role, String firstName, String lastName, Date birthDate, int age){
+    public Person(int id, String userName, String password, String role, String firstName, String lastName, LocalDate birthDate, int age){
         this.id = id;
         this.userName = userName;
         this.password = password;
